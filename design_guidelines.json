@@ -1,0 +1,132 @@
+{
+  "theme": "Light/Dark Hybrid",
+  "archetype": "Archetype 4 (Swiss & High-Contrast)",
+  "brand": {
+    "name": "SERFIX Service Limited",
+    "slogan": "Local | Reliable | Trusted",
+    "location": "Regina, Saskatchewan",
+    "services": [
+      "Appliance repair & installation",
+      "Drywall & painting",
+      "Doors/trim/fixtures",
+      "General maintenance"
+    ],
+    "contacts": {
+      "phone": "306 942 7345",
+      "email": "info@serfixservice.com"
+    }
+  },
+  "colors": {
+    "primary": "#FACC15",
+    "primary_foreground": "#09090B",
+    "background_light": "#FAFAFA",
+    "background_dark": "#09090B",
+    "surface": "#FFFFFF",
+    "border": "#18181B",
+    "text_dark": "#09090B",
+    "text_light": "#FAFAFA",
+    "accent_hover": "#EAB308"
+  },
+  "typography": {
+    "headings": {
+      "family": "Oswald, sans-serif",
+      "weights": ["600", "700"],
+      "styling": "uppercase, tracking-tight, leading-none"
+    },
+    "body": {
+      "family": "IBM Plex Sans, sans-serif",
+      "weights": ["400", "500"],
+      "styling": "tracking-normal, leading-relaxed"
+    },
+    "sizes": {
+      "h1": "text-5xl sm:text-6xl md:text-7xl",
+      "h2": "text-4xl sm:text-5xl",
+      "h3": "text-2xl sm:text-3xl",
+      "h4": "text-xl",
+      "body": "text-base sm:text-lg",
+      "small": "text-sm uppercase tracking-[0.2em]"
+    }
+  },
+  "layout": {
+    "spacing_scale": "Generous (p-8, p-12, p-16, py-24)",
+    "grid_system": "Bento Grid (Tetris Mode) for services, asymmetric 12-column layout for hero",
+    "surfaces": {
+      "cards": "Flat background, 2px solid border-zinc-900, sharp corners (rounded-none or rounded-sm), hard drop shadow on hover",
+      "buttons": "Solid fill, 2px border-zinc-900, font-bold uppercase"
+    }
+  },
+  "components": {
+    "hero": {
+      "background": "bg-zinc-950 text-zinc-50",
+      "layout": "Grid cols-1 lg:grid-cols-2 gap-12 items-center min-h-[85vh] py-20 px-6 md:px-12",
+      "typography": "H1 in Oswald, highlighting 'SERFIX' and 'Regina' in yellow-400",
+      "cta": "Dual buttons: Primary (Yellow bg, black text, call phone), Secondary (Transparent bg, white border, scroll to form)",
+      "image": "Right column overlapping image with 2px yellow border"
+    },
+    "services_bento": {
+      "background": "bg-zinc-50 text-zinc-950 py-24 px-6 md:px-12",
+      "layout": "CSS Grid, grid-cols-1 md:grid-cols-4 gap-6",
+      "card_style": "border-2 border-zinc-900 bg-white p-8 hover:-translate-y-1 transition-transform duration-300 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]",
+      "items": "Appliance repair (col-span-2), Drywall (col-span-1), Doors/fixtures (col-span-1), Gen maintenance (col-span-full md:col-span-2)"
+    },
+    "trust_location": {
+      "background": "bg-zinc-900 text-zinc-50 py-24 px-6 md:px-12 relative overflow-hidden",
+      "layout": "Flex column, center aligned, max-w-4xl mx-auto",
+      "image_treatment": "Background image with heavy black/zinc-900 overlay (bg-zinc-900/80) to ensure text contrast"
+    },
+    "contact_form": {
+      "background": "bg-zinc-100 text-zinc-950 py-24 px-6 md:px-12",
+      "layout": "Grid cols-1 lg:grid-cols-2 gap-16",
+      "form_style": "Shadcn form elements heavily customized: sharp borders (rounded-none), focus:ring-yellow-400 focus:border-zinc-900, bold labels"
+    },
+    "header": {
+      "style": "Sticky top-0 z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800 text-zinc-50",
+      "layout": "Flex justify-between items-center px-6 py-4"
+    },
+    "footer": {
+      "style": "bg-zinc-950 text-zinc-400 py-12 px-6 border-t border-zinc-900",
+      "layout": "Grid cols-1 md:grid-cols-3 gap-8"
+    }
+  },
+  "media": {
+    "images": [
+      {
+        "category": "hero",
+        "url": "https://images.unsplash.com/photo-1623161551727-54c918bdcec1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxoYW5keW1hbiUyMHJlcGFpcmluZyUyMGhvbWV8ZW58MHx8fHwxNzc3ODI2MDU1fDA&ixlib=rb-4.1.0&q=85",
+        "alt": "Yellow and black cordless drill held by professional",
+        "usage": "Hero section right-side visual or background accent. Matches brand colors perfectly."
+      },
+      {
+        "category": "service_drywall",
+        "url": "https://images.unsplash.com/photo-1674376360439-887ea33bce0d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHwxfHxwYWludGluZyUyMGFuZCUyMGRyeXdhbGx8ZW58MHx8fHwxNzc3ODI2MDU1fDA&ixlib=rb-4.1.0&q=85",
+        "alt": "Room with white door and yellow strip, painting and drywall",
+        "usage": "Visual for the Drywall & Painting bento card."
+      },
+      {
+        "category": "location_trust",
+        "url": "https://images.unsplash.com/photo-1636594107332-c57936a1f03e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxyZWdpbmElMjBzYXNrYXRjaGV3YW58ZW58MHx8fHwxNzc3ODI2MDU1fDA&ixlib=rb-4.1.0&q=85",
+        "alt": "Regina Saskatchewan building",
+        "usage": "Background or side image for the 'Serving Regina' trust section. Needs heavy overlay."
+      }
+    ],
+    "icons": {
+      "library": "lucide-react",
+      "instruction": "Use thick, industrial icons (strokeWidth={2.5} or {3}). Use Wrench, PaintRoller, DoorOpen, Hammer, PhoneCall, Mail, MapPin."
+    }
+  },
+  "motion": {
+    "interactions": "Crisp, fast transitions (duration-150 or 200). Use hard transforms (e.g., -translate-y-1, shadow-lg) on hover for buttons and cards. No floaty/slow animations. It must feel mechanical and responsive."
+  },
+  "accessibility": {
+    "contrast": "Ensure yellow text/buttons on white backgrounds have black borders or black text for contrast. White text on black is high contrast.",
+    "testing": "All interactive elements MUST include data-testid attributes (e.g., data-testid='hero-cta-call', data-testid='contact-form-submit')."
+  },
+  "instructions_to_main_agent": [
+    "Install Google Fonts in index.css: @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap');",
+    "Update tailwind.config.js to include font families: { sans: ['IBM Plex Sans', 'sans-serif'], display: ['Oswald', 'sans-serif'] }.",
+    "Use standard HTML tags for layout (div, section) and customize Shadcn components heavily by removing standard rounded corners (use rounded-none) and applying solid black borders to match the industrial Swiss theme.",
+    "Implement the single-page scrolling navigation: Header links should scroll to #services, #about, #contact.",
+    "Ensure the hero section highlights the primary action (Call 306-942-7345) dominantly.",
+    "Make the UI feel robust, structural, and 'construction-like' using bold black borders and high-contrast yellow accents."
+  ]
+}
