@@ -72,7 +72,13 @@ export const TrustSection = () => {
 
       <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-center">
         <div className="lg:col-span-7">
-          <p className="section-kicker text-yellow-400" data-testid="trust-kicker">Local | Reliable | Trusted</p>
+          <p className="section-kicker trust-slogan text-yellow-400" data-testid="trust-kicker" aria-label="Local | Reliable | Trusted">
+            <span data-testid="trust-kicker-local">Local</span>{" "}
+            <span className="font-sans text-yellow-300" data-testid="trust-kicker-separator-one">&#124;</span>{" "}
+            <span data-testid="trust-kicker-reliable">Reliable</span>{" "}
+            <span className="font-sans text-yellow-300" data-testid="trust-kicker-separator-two">&#124;</span>{" "}
+            <span data-testid="trust-kicker-trusted">Trusted</span>
+          </p>
           <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold uppercase leading-none tracking-tight sm:text-5xl" data-testid="trust-heading">
             A Regina handyman service built around straight answers and solid work.
           </h2>

@@ -26,6 +26,10 @@ html {
     color: #ca8a04;
 }
 
+.trust-slogan {
+    text-transform: none;
+}
+
 .service-card {
     min-height: 330px;
     border: 2px solid #09090b;
