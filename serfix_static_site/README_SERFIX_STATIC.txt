@@ -7,10 +7,4 @@ Recommended GitHub Pages settings:
 - Branch: main
 - Folder: /docs
 
-Important files in this folder:
-- index.html
-- static/
-- asset-manifest.json
-- .nojekyll
-
-The site is static. The contact form opens an email draft to info@serfixservice.com.
+Upload the docs folder to the root of your repository, then select /docs in GitHub Pages settings.

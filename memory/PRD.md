@@ -37,3 +37,10 @@
 - Created `/app/docs` with static build contents and `.nojekyll` for GitHub Pages `main /docs` publishing.
 - Created `/app/serfix_github_pages_ready.zip` containing both `docs` and `serfix_static_site` folders.
 - Verified nested path rendering locally with `/SERFIX4/serfix_static_site/`.
+
+
+## No-Badge Static Export Update
+- Removed platform badge and related external scripts from `frontend/public/index.html`.
+- Rebuilt `/app/docs` and `/app/serfix_static_site`.
+- Repacked `/app/serfix_github_pages_ready.zip`.
+- Verified rendered site has no `Made with Emergent` text and no `#emergent-badge` element.
