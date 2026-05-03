@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { CONTACT, SERVICES } from "@/data/serfixContent";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const IS_STATIC_EXPORT = process.env.REACT_APP_STATIC_EXPORT === "true";
 
 const initialForm = {
   name: "",
@@ -31,6 +32,19 @@ export const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
+      if (IS_STATIC_EXPORT) {
+        const subject = encodeURIComponent(`SERFIX service request: ${form.service}`);
+        const body = encodeURIComponent(
+          `Name: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email || "Not provided"}\nService: ${form.service}\n\nMessage:\n${form.message}`
+        );
+        window.location.href = `${CONTACT.mailHref}?subject=${subject}&body=${body}`;
+        toast.success("Email draft opened", {
+          description: "Your request is ready to send to SERFIX.",
+        });
+        setForm(initialForm);
+        return;
+      }
+
       const payload = {
         ...form,
         email: form.email.trim() ? form.email.trim() : null,
