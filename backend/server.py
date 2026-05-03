@@ -1,11 +1,11 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict
+from pydantic import BaseModel, Field, ConfigDict, EmailStr
 from typing import List
 import uuid
 from datetime import datetime, timezone
@@ -37,10 +37,57 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+
+class InquiryCreate(BaseModel):
+    name: str = Field(..., min_length=2, max_length=80)
+    phone: str = Field(..., min_length=7, max_length=30)
+    email: EmailStr | None = None
+    service: str = Field(..., min_length=2, max_length=80)
+    message: str = Field(..., min_length=10, max_length=1000)
+
+
+class Inquiry(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    phone: str
+    email: EmailStr | None = None
+    service: str
+    message: str
+    status: str = "new"
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "SERFIX Service Limited API is ready"}
+
+
+@api_router.post("/inquiries", response_model=Inquiry)
+async def create_inquiry(input: InquiryCreate):
+    cleaned = input.model_dump()
+    inquiry = Inquiry(**cleaned)
+    doc = inquiry.model_dump()
+    doc["created_at"] = doc["created_at"].isoformat()
+
+    try:
+        await db.serfix_inquiries.insert_one(doc)
+    except Exception as exc:
+        logger.exception("Failed to save SERFIX inquiry")
+        raise HTTPException(status_code=500, detail="Unable to save inquiry") from exc
+
+    return inquiry
+
+
+@api_router.get("/inquiries", response_model=List[Inquiry])
+async def list_inquiries():
+    inquiries = await db.serfix_inquiries.find({}, {"_id": 0}).sort("created_at", -1).to_list(100)
+    for inquiry in inquiries:
+        if isinstance(inquiry.get("created_at"), str):
+            inquiry["created_at"] = datetime.fromisoformat(inquiry["created_at"])
+
+    return inquiries
 
 @api_router.post("/status", response_model=StatusCheck)
 async def create_status_check(input: StatusCheckCreate):

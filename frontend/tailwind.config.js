@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
   	extend: {
+                fontFamily: {
+                        sans: ['IBM Plex Sans', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif']
+                },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
