@@ -30,3 +30,10 @@
 
 ### P2
 - Add SEO meta tags, business hours, testimonials, and project/gallery photos.
+
+
+## GitHub Pages Ready Update
+- Updated React routing to render the site on any path (`path="*"`), fixing blank screens on GitHub Pages subpaths like `/SERFIX4/serfix_static_site/`.
+- Created `/app/docs` with static build contents and `.nojekyll` for GitHub Pages `main /docs` publishing.
+- Created `/app/serfix_github_pages_ready.zip` containing both `docs` and `serfix_static_site` folders.
+- Verified nested path rendering locally with `/SERFIX4/serfix_static_site/`.
